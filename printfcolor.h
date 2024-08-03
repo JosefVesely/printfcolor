@@ -5,8 +5,6 @@
 #include <stdarg.h>
 #include <stdbool.h>
 
-// #undef _WIN32 // TESTING FOR UNIX!!!
-
 #ifdef _WIN32
 #include <Windows.h>
 #endif
@@ -16,7 +14,7 @@ extern "C" {
 #endif
 
 
-typedef enum {
+typedef enum Color {
     GRAY = 0,
     GREY = 0,
     BLUE = 1,
@@ -28,8 +26,53 @@ typedef enum {
     WHITE = 7
 } Color;
 
+/**
+ * Prints formatted output to the console with specified foreground and background colors.
+ *
+ * @param foregroundColor  The color code for the text foreground color. 
+ * @param backgroundColor  The color code for the text background color. 
+ * @param format           A format string for the output. This is followed by additional arguments
+ *                         to be formatted according to the format string.
+ *
+ * @return  The number of characters written to the console, or `-1` if an error occurs. 
+ *          Returns `-1` if the provided color codes are invalid or if there is an issue retrieving
+ *          the console screen buffer information.
+ *
+ * @warning If the color codes are invalid or if the console screen buffer information cannot
+ *          be retrieved, an error message is printed to `stderr`, and `-1` is returned.
+ */
 int printfColor(Color foregroundColor, Color backgroundColor, const char *format, ...);
+
+/**
+ * Prints formatted output to the console with specified foreground color.
+ *
+ * @param foregroundColor  The color code for the text foreground color.
+ * @param format           A format string for the output. This is followed by additional arguments
+ *                         to be formatted according to the format string.
+ *
+ * @return  The number of characters written to the console, or `-1` if an error occurs. 
+ *          Returns `-1` if the provided color codes are invalid or if there is an issue retrieving
+ *          the console screen buffer information.
+ *
+ * @warning If the color code is invalid or if the console screen buffer information cannot
+ *          be retrieved, an error message is printed to `stderr`, and `-1` is returned.
+ */
 int printfColorFg(Color foregroundColor, const char *format, ...);
+
+/**
+ * Prints formatted output to the console with specified background color.
+ *
+ * @param backgroundColor  The color code for the text background color.
+ * @param format           A format string for the output. This is followed by additional arguments
+ *                         to be formatted according to the format string.
+ *
+ * @return  The number of characters written to the console, or `-1` if an error occurs. 
+ *          Returns `-1` if the provided color codes are invalid or if there is an issue retrieving
+ *          the console screen buffer information.
+ *
+ * @warning If the color code is invalid or if the console screen buffer information cannot
+ *          be retrieved, an error message is printed to `stderr`, and `-1` is returned.
+ */
 int printfColorBg(Color backgroundColor, const char *format, ...);
 
 
