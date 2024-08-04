@@ -17,14 +17,14 @@ Include the `printfcolor.h` header file in your C project:
 
 int main()
 {
-    printfColorFg(BLUE, "Blue text\n");
-    printfColorFg(MAGENTA, "Magenta text\n\n");
+    printfc_fg(BLUE, "Blue text\n");
+    printfc_fg(MAGENTA, "Magenta text\n\n");
 
-    printfColorBg(GREEN, "Green background\n");
-    printfColorBg(RED, "Red background\n\n");
+    printfc_bg(GREEN, "Green background\n");
+    printfc_bg(RED, "Red background\n\n");
 
-    printfColor(WHITE, BLUE, "White on blue\n");
-    printfColor(MAGENTA, CYAN, "Magenta on cyan\n");
+    printfc(WHITE, BLUE, "White on blue\n");
+    printfc(MAGENTA, CYAN, "Magenta on cyan\n");
 }
 ```
 
