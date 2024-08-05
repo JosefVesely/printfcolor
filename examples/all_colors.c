@@ -1,9 +1,8 @@
-#include "printfcolor.h"
+#include "../printfcolor.h"
 
 int main()
 {
     printf("FOREGROUND\n");
-    printf("----------\n");
     printfc_fg(GRAY, "Gray text\n");
     printfc_fg(RED, "Red text\n");
     printfc_fg(GREEN, "Green text\n");
@@ -14,7 +13,6 @@ int main()
     printfc_fg(WHITE, "White text\n\n");
 
     printf("BACKGROUND\n");
-    printf("----------\n");
     printfc_bg(GRAY, "Gray background\n");
     printfc_bg(RED, "Red background\n");
     printfc_bg(GREEN, "Green background\n");
@@ -25,11 +23,11 @@ int main()
     printfc_bg(WHITE, "White background\n\n");
 
     printf("BACKGROUND AND FOREGROUND\n");
-    printf("-------------------------\n");
-    printfc(WHITE, BLUE, "White on blue\n");
+    printfc(YELLOW, BLUE, "Yellow on blue\n");
     printfc(RED, YELLOW, "Red on yellow\n");
     printfc(GRAY, GREEN, "Gray on green\n");
     printfc(MAGENTA, CYAN, "Magenta on cyan\n");
     printfc(GREEN, WHITE, "Green on white\n");
     printfc(GRAY, RED, "Gray on red\n");
+    printfc(BLUE, GRAY, "Blue on gray\n");
 }
