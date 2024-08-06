@@ -14,7 +14,6 @@
 extern "C" {
 #endif
 
-
 typedef enum PfcColor {
     GRAY = 0,
     GREY = 0,
@@ -24,14 +23,14 @@ typedef enum PfcColor {
     RED = 4,
     MAGENTA = 5,
     YELLOW = 6,
-    WHITE = 7
+    WHITE = 7,
+    ORANGE = 8
 } PfcColor;
-
 
 /**
  * Prints formatted output to the console with specified foreground and background colors.
  *
- * Colors: `RED, GREEN, BLUE, WHITE, GRAY (GREY), CYAN, MAGENTA, YELLOW`
+ * Colors: `RED, GREEN, BLUE, WHITE, GRAY (GREY), CYAN, MAGENTA, YELLOW, ORANGE`
  * 
  * @param fg_color  The color code for the text foreground color. 
  * @param bg_color  The color code for the text background color. 
@@ -48,7 +47,7 @@ int printfc(PfcColor fg_color, PfcColor bg_color, const char *format, ...);
 /**
  * Prints formatted output to the console with specified foreground color.
  * 
- * Colors: `RED, GREEN, BLUE, WHITE, GRAY (GREY), CYAN, MAGENTA, YELLOW`
+ * Colors: `RED, GREEN, BLUE, WHITE, GRAY (GREY), CYAN, MAGENTA, YELLOW, ORANGE`
  *
  * @param fg_color  The color code for the text foreground color.
  * @param format    A format string for the output. This is followed by additional arguments
@@ -64,7 +63,7 @@ int printfc_fg(PfcColor fg_color, const char *format, ...);
 /**
  * Prints formatted output to the console with specified background color.
  * 
- * Colors: `RED, GREEN, BLUE, WHITE, GRAY (GREY), CYAN, MAGENTA, YELLOW`
+ * Colors: `RED, GREEN, BLUE, WHITE, GRAY (GREY), CYAN, MAGENTA, YELLOW, ORANGE`
  *
  * @param bg_color  The color code for the text background color.
  * @param format    A format string for the output. This is followed by additional arguments
@@ -82,13 +81,14 @@ int printfc_bg(PfcColor bg_color, const char *format, ...);
 
 static bool is_color_valid(PfcColor color)
 {
-    return color >= 0 && color <= 7;
+    return color >= 0 && color <= 8;
 }
 
 static const char *get_fg_color_code(PfcColor color) {
     const char *colors[] = { 
         "\033[30m", "\033[34m", "\033[32m", "\033[36m",
-        "\033[31m", "\033[35m", "\033[33m", "\033[37m" 
+        "\033[31m", "\033[35m", "\033[33m", "\033[37m",
+        "\033[38;5;208m"
     };
 
     if (is_color_valid(color))
@@ -100,7 +100,8 @@ static const char *get_fg_color_code(PfcColor color) {
 static const char *get_bg_color_code(PfcColor color) {
     const char *colors[] = { 
         "\033[40m", "\033[44m", "\033[42m", "\033[46m", 
-        "\033[41m", "\033[45m", "\033[43m", "\033[47m" 
+        "\033[41m", "\033[45m", "\033[43m", "\033[47m",
+        "\033[48;5;208m"
     };
 
     if (is_color_valid(color))
