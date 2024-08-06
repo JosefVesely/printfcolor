@@ -11,6 +11,7 @@ int main()
     printfc_fg(MAGENTA, "Magenta text\n");
     printfc_fg(YELLOW, "Yellow text\n");
     printfc_fg(WHITE, "White text\n\n");
+    printfc_fg(ORANGE, "Orange text\n\n");
 
     printf("BACKGROUND\n");
     printfc_bg(GRAY, "Gray background\n");
@@ -21,6 +22,7 @@ int main()
     printfc_bg(MAGENTA, "Magenta background\n");
     printfc_bg(YELLOW, "Yellow background\n");
     printfc_bg(WHITE, "White background\n\n");
+    printfc_bg(ORANGE, "Orange background\n");
 
     printf("BACKGROUND AND FOREGROUND\n");
     printfc(YELLOW, BLUE, "Yellow on blue\n");
@@ -30,4 +32,5 @@ int main()
     printfc(GREEN, WHITE, "Green on white\n");
     printfc(GRAY, RED, "Gray on red\n");
     printfc(BLUE, GRAY, "Blue on gray\n");
+    printfc(ORANGE, BLUE, "Orange on blue\n");
 }
